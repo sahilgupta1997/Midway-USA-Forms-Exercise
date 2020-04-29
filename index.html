@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "UTF-8">
+  <title>MidwayUSA</title>
+  <meta name="description" content ="MidwayUSA Forms">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+<!--  <script src="forms.js"> </script> -->
+</head>
+
+<header>
+
+<!--Logo of MidwayUSA-->
+<div style ="font-size:80%;text-align:inherit;"> <img class="logo" src="logo.png" alt="logo"/>
+  <figcaption>  Just About Everything®<br>
+    for Shooting, Hunting and the Outdoors
+  </figcaption>
+</div>
+
+<!--Show Forms Button-->
+<input type="button" id="showFormsButton" class="showFormsButton" name="formsbutton" value="Show Forms" onclick="showDiv()" />
+
+<!--Product Suggestion Button and Contact Us Button-->
+<div id="formsDiv" class = "button-box">
+  <div id = "btn"> </div>
+  <button type ="button" class="toggle-btn" onclick ="productSuggestion()">Product Suggestion Form</button>
+  <button type ="button" class="toggle-btn" onclick ="contactUs()">Contact Us Form</button>
+</div>
+
+</header>
+
+<body>
+
+  <!--Form box-->
+  <div id="formBox"  class="form-box">
+
+    <!--Input Group fields of Product Suggestion Form-->
+    <form id= "productSuggestion" class = "input-group">
+      <label>Name</Name>
+      <input type="text" class="input-field" placeholder ="Name" onfocus="this.placeholder = ''"  onblur="this.placeholder = 'Name'"  required> <br> <br>
+      <label>Email</label>
+      <input type="email" class="input-field" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required> <br> <br>
+      <label>Description of Product Desired</label>
+
+      <textarea name="ta" class ="input-field" rows="9" cols="41" maxlength="300"   placeholder="Example: Lightweight Baitcast Reel"
+      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Example: Lightweight Baitcast Reel'"
+      onKeyDown="textCounter(this.form.ta,this.form.countDisplay);" onKeyUp="textCounter(this.form.ta,this.form.countDisplay);" required></textarea> <!--textCounter Function called for every char inserted or deleted-->
+
+      <input readonly type="text" class="countDisplay" name="countDisplay" size=1 maxlength="3" value="300"> <!--Display the Characters Remaining-->
+      <span id="charText">Characters Remaining:</span>
+
+      <button type="submit" class="submit-btn">Submit</button> <!--Submit Button-->
+    </form>
+
+    <!--Input Group fields of Contact Us Form-->
+    <form id ="contactUs" class = "input-group">
+      <label>Name</label>
+      <input type="text" class="input-field" placeholder ="Name" onfocus="this.placeholder = ''"  onblur="this.placeholder = 'Name'" required><br> <br>
+      <label>Email</label>
+      <input type="email" class="input-field" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required><br> <br>
+
+
+      <label>Contact Reason</label><br><br>
+
+      <!--Radio button 1-->
+      <input type="radio" id="orderQuest" name="rad" required>
+      <label for= "orderQuest">Order Question</label><br><br>
+
+      <!--Checking the Radio button will change the display tag of dvText-->
+      <div id ="dvText">
+        <input type="text"  class="orderquestioninput" placeholder="Type your Order Question here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type your Order Question here'" ><br><br>
+      </div>
+
+      <!--Radio button 2-->
+      <input type="radio" id="websiteFeedback" name="rad"/>
+      <label for="websiteFeedback">Website Feedback</label><br><br>
+
+      <!--Checking the Radio button will change the display tag of dvText1-->
+      <div id ="dvText1">
+        <input type="text"  class="input-field" placeholder="Type your Website feedback here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type your Website feedback here'" ><br><br>
+      </div>
+
+      <!--Radio button 3-->
+      <input type="radio" id="troublefindingproduct" name="rad"  onclick="productSuggestion()" /> <!--Checking the radio button will call productSuggestion function and switch to a different form-->
+      <label for="troublefindingproduct">Trouble Finding Product</label><br><br>
+
+      <!--General Feedback from user-->
+      <label>Feedback</label>
+      <textarea name="ta" class ="input-field" rows="9" cols="41" maxlength="300"
+      placeholder="Type your general feedback here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type your general feedback here'"
+      onKeyDown="textCounter(this.form.ta,this.form.countDisplay);" onKeyUp="textCounter(this.form.ta,this.form.countDisplay);" required></textarea>
+      <input readonly type="text" class="countDisplay" name="countDisplay" size=1 maxlength="3" value="300"> <!--Counting and Displaying the number of characters remaining-->
+
+      <span id="charText"> Characters Remaining:</span>
+      <button type="submit" class="submit-btn">Submit</button> <!--Submit Button-->
+    </form>
+  </div>
+
+
+
+  <script>
+
+  var x = document.getElementById("productSuggestion");
+  var y = document.getElementById("contactUs");
+  var z = document.getElementById("btn");
+  var maxAmount = 300;
+
+  /*Function to make the initial forms hidden*/
+  function showDiv() {
+     document.getElementById('formsDiv').style.display = "block";
+     document.getElementById('formBox').style.display = "block";
+      document.getElementById('showFormsButton').style.display = "none"; //hide the Show Forms button
+  }
+
+  /*Function to show Contact Us form*/
+  function contactUs() {
+    x.style.left = "-400px";
+    y.style.left = "450px";
+    z.style.left = "210px";
+  }
+
+  /*Function to show Product Suggestion form*/
+  function productSuggestion() {
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0";
+  }
+
+  /*Function to count the number of characters remaining*/
+  function textCounter(textField, showCountField) {
+    if (textField.value.length > maxAmount) {
+      textField.value = textField.value.substring(0,maxAmount);
+    } else {
+      showCountField.value= maxAmount-textField.value.length;
+    }
+  }
+
+</script>
+</body>
+</html>

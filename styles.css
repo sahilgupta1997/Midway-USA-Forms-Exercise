@@ -1,0 +1,200 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+
+img.logo {
+  cursor: pointer;
+  height:60px;
+  width:170px;
+}
+
+.showFormsButton{
+  display: block;
+  padding: 10px 30px;
+  cursor: pointer;
+  margin: auto;
+  margin-left: 330px;
+  background: linear-gradient(to right,#ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+
+.showFormsButton:hover {
+  background: linear-gradient(to left,#ff105f, #ffad06);
+}
+
+.button-box{
+  width: 420px;
+  margin:  auto;
+  margin-left: 175px;
+  position: relative;
+  box-shadow: 0 0 20px 9px #ff61241f;
+  display: none;
+  border-radius: 30px;
+}
+
+.toggle-btn {
+  padding: 10px 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  width: 210px;
+  float: left;
+}
+
+.toggle-btn:hover {
+  background: linear-gradient(to left,#ff105f, #ffad06);
+  border-radius: 30px;
+}
+
+.form-box {
+  width:380px;
+  height: 700px;
+  position: relative;
+  margin: 1% auto;
+  background: #ff61241f;
+  padding: 5px;
+  overflow: hidden; /*hidden so that only one form displayed at a time*/
+  display: none;
+  border-radius: 15px;
+}
+/*To keep the user from expanding the textarea*/
+textarea{
+resize:none;
+}
+
+/*Number of chars remining should be floating right on the textarea*/
+.countDisplay{
+  background:  transparent;
+  outline: none;
+  border: 0;
+  font-style: italic;
+  font-size: 12px;
+  float: right;
+}
+
+/*Input fields are transparent for ease*/
+.input-field{
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right:0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+
+.orderquestioninput{
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right:0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.websitefeedbackinput{
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right:0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.submit-btn{
+  width:85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 25px 20px;
+  background: linear-gradient(to right,#ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to left,#ff105f, #ffad06); /*changed the direction for hover*/
+}
+
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 210px;
+  height: 100%;
+  background: linear-gradient(to right,#ff105f, #ffad06);
+  border-radius: 30px;
+  transition: .3s;
+}
+
+#productSuggestion{
+  left: 50px;
+}
+
+#contactUs{
+  left: 450px;
+}
+
+#dvText{
+    display: none;
+}
+
+#dvText1{
+    display: none;
+}
+
+/*display the div when radio button is selected*/
+#orderQuest:checked ~ #dvText{
+  display: block;
+}
+
+/*display the div when radio button is selected*/
+#websiteFeedback:checked ~ #dvText1{
+  display: block;
+}
+
+#productSuggestion.input-group{
+  top: 50px;
+  position: absolute;
+  width: 280px;
+  transition: .3s;
+}
+
+#contactUs.input-group{
+  top: 0px;
+  position: absolute;
+  width: 280px;
+  transition: .3s;
+}
+
+#charText {
+  font-style: italic;
+  font-size: 12px;
+  float: right;
+}
